@@ -1,0 +1,20 @@
+nav.bg-white.border-gray-200.dark:bg-gray-900.dark:border-gray-700
+  .max-w-screen-xl.flex.flex-wrap.items-center.justify-between.mx-auto.p-4
+    a.flex.items-center.space-x-3.rtl:space-x-reverse[href="#"]
+      img.h-8[src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo"]
+      span.self-center.text-2xl.font-semibold.whitespace-nowrap.dark:text-white 
+        | Blog App
+    #navbar-dropdown.hidden.w-full.md:block.md:w-auto
+      ul.flex.flex-col.font-medium.p-4.md:p-0.mt-4.border.border-gray-100.rounded-lg.bg-gray-50.md:space-x-8.rtl:space-x-reverse.md:flex-row.md:mt-0.md:border-0.md:bg-white.dark:bg-gray-800.md:dark:bg-gray-900.dark:border-gray-700
+        - if user_signed_in?
+            li
+              = link_to "Add New Blog", new_blog_path, class: "block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+            li
+              = link_to "All Blogs", root_path, class: "block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+            li
+              = link_to "My Blogs", my_blogs_blogs_path, class: "block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+            li
+              = link_to 'Logout', destroy_user_session_path, class: 'block py-2 px-3 text-white bg-danger-700 rounded md:bg-transparent md:text-danger-700 md:p-0 md:dark:text-danger-500 dark:bg-danger-600 md:dark:bg-transparent'
+        - else
+            li
+              = link_to 'Login', new_user_session_path, class: 'block py-2 px-3 text-white bg-danger-700 rounded md:bg-transparent md:text-danger-700 md:p-0 md:dark:text-danger-500 dark:bg-danger-600 md:dark:bg-transparent'
