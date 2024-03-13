@@ -4,3 +4,6 @@
 
 = render partial: "blogs/empty_state", locals: { blogs: @blogs }
 = render @blogs
+
+.flex.items-center.justify-center.digg_pagination.my-6
+  = will_paginate @blogs

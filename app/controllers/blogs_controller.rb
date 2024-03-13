@@ -1,12 +1,19 @@
 class BlogsController < ApplicationController
+  @@per_page = 3
   before_action :set_blog, only: %i[ show edit update destroy ]
 
   def index
-    @blogs = Blog.all
+    @blogs = 
+      Blog
+        .all
+        .paginate(page: params[:page], per_page: @@per_page)
   end
 
   def my_blogs
-    @blogs = current_user.blogs
+    @blogs = 
+      current_user
+      .blogs
+      .paginate(page: params[:page], per_page: @@per_page)
     render :index
   end
 

@@ -77,3 +77,4 @@ end
 
 gem 'devise'
 gem "slim-rails"
+gem 'will_paginate'
