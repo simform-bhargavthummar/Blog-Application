@@ -1,15 +1,19 @@
 .w-full.bg-white.border.border-gray-200.rounded-lg.mt-5.shadow.dark:bg-gray-800.dark:border-gray-700
-  ul#defaultTab.flex.flex-wrap.text-sm.font-medium.text-center.text-gray-500.border-b.border-gray-200.rounded-t-lg.bg-gray-50.dark:border-gray-700.dark:text-gray-400.dark:bg-gray-800[data-tabs-toggle="#defaultTabContent" role="tablist"]
-    li.me-2
-      div#about-tab.inline-block.p-4.rounded-ss-lg
-        | Published On
-        =< blog.publication_date&.strftime("%B %d, %Y")
-    
-    - if current_user.id == blog.user.id
-      li.me-2
-        = link_to 'Edit', edit_blog_path(blog), class: 'mt-1.5 text-gray-100 text-sm rounded-2xl px-4 py-2 border-2 font-semibold inline-block'
-      li.me-2
-        = link_to 'Delete', blog_path(blog), data: { turbo_method: :delete }, class: 'mt-1.5 text-gray-100 text-sm rounded-2xl px-4 py-2 border-2 font-semibold inline-block'
+  div#defaultTab.flex.flex-wrap.justify-between.text-sm.font-medium.text-center.text-gray-500.border-b.border-gray-200.rounded-t-lg.bg-gray-50.dark:border-gray-700.dark:text-gray-400.dark:bg-gray-800*{'data-controller'=>'clipboard'}
+    div.me-2
+      = link_to blog_path(blog), data: { "clipboard-target" => "source"} do
+        div#about-tab.inline-block.p-4.rounded-ss-lg
+          | Published On
+          =< blog.publication_date&.strftime("%B %d, %Y")
+
+    div.flex.justify-between.flex-wrap
+      div.me-2
+        = link_to 'Copy to Clipboard', "javascript:void(0);", class: 'mt-1.5 text-gray-100 text-sm rounded-2xl px-4 py-2 border-2 font-semibold inline-block', data: {"action" => "clipboard#copy"}
+      - if current_user.id == blog.user.id
+        div.me-2
+          = link_to 'Edit', edit_blog_path(blog), class: 'mt-1.5 text-gray-100 text-sm rounded-2xl px-4 py-2 border-2 font-semibold inline-block'
+        div.me-2
+          = link_to 'Delete', blog_path(blog), data: { turbo_method: :delete }, class: 'mt-1.5 text-gray-100 text-sm rounded-2xl px-4 py-2 border-2 font-semibold inline-block'
 
   #defaultTabContent
     #about.p-4.bg-white.rounded-lg
@@ -18,7 +22,6 @@
           =< blog.title
       p.mb-3.text-gray-500.dark:text-gray-600
         =< blog.content
-      
       hr
       a.inline-flex.items-center.font-medium.mt-1
         | By
