@@ -10,5 +10,5 @@
       - if comment.user.id == current_user.id
         .py-2
           = turbo_frame_tag "#{dom_id(comment)}"
-            = link_to "Edit Comment", edit_blog_comment_path(blog, comment), class: "bg-cyan-300 font-semibold bg-btnEdit py-2 px-4 rounded-3xl"
-            = link_to "Destroy", blog_comment_path(blog, comment), data: { turbo_method: :delete }, class: "ml-4 bg-red-200 font-semibold bg-btnDanger py-2 px-4 rounded-3xl"
+            = link_to "Edit Comment", edit_blog_comment_path(blog, comment), class: "bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline py-2 px-4 rounded-3xl"
+            = link_to "Destroy", blog_comment_path(blog, comment), data: { turbo_method: :delete }, class: "ml-4 bg-red-700 text-white font-semibold py-2 px-4 rounded-3xl"

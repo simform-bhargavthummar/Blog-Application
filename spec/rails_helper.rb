@@ -32,7 +32,6 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = Rails.root.join('spec/fixtures')
-
   config.include FactoryBot::Syntax::Methods, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :controller
 
