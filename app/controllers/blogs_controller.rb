@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    @title = "All Blogs"
     @blogs = 
       Blog
         .all
@@ -10,6 +11,7 @@ class BlogsController < ApplicationController
   end
 
   def my_blogs
+    @title = "My Blogs"
     @blogs = 
       current_user
       .blogs
