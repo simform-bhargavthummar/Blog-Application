@@ -1,0 +1,14 @@
+= turbo_frame_tag "blog_comment_#{comment.id}"
+  .mt-3
+    .bg-white.p-4.rounded-lg.shadow-md
+      .flex.justify-between.items-center
+        span.text-sm.text-gray-600
+          | By #{comment.user.email} on #{comment.created_at.strftime("%B %d, %Y")}
+      p.mt-2.text-gray-800.mb-5
+        = comment.content
+
+      - if comment.user.id == current_user.id
+        .py-2.flex.justify-between
+          = turbo_frame_tag "#{dom_id(comment)}"
+            = link_to "Edit Comment", edit_blog_comment_path(blog, comment), class: "bg-cyan-300 font-semibold bg-btnEdit py-2 px-4 rounded-3xl"
+            = link_to "Destroy", blog_comment_path(blog, comment), data: { turbo_method: :delete }, class: "ml-4 bg-red-200 font-semibold bg-btnDanger py-2 px-4 rounded-3xl"

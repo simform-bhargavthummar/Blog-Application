@@ -1,0 +1,4 @@
+- if object.errors.any?
+  .mb-4.text-red-500
+    - object.errors.full_messages.each do |message|
+      li = message

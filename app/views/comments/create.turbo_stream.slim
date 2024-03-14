@@ -1,0 +1,6 @@
+- if @comment.errors.any?
+  = turbo_stream.replace "new_comment_form", partial: 'comments/new', locals: { blog: @blog, comment: @comment }
+- else
+  = turbo_stream.prepend "#{dom_id(@blog)}_comments", partial: 'comments/comment', locals: { blog: @blog, comment: @comment }
+  = turbo_stream.replace "new_comment_form", partial: 'comments/new', locals: { blog: @blog, comment: Comment.new }
+  

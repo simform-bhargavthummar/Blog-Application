@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     collection do
       get :my_blogs, to: "blogs#my_blogs", as: :my_blogs
     end
+
+    resources :comments, except: [:index, :show, :new]
   end
 end

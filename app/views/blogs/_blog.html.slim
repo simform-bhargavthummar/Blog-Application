@@ -21,7 +21,7 @@
         h2.mb-3.text-3xl.font-extrabold.tracking-tight
           =< blog.title
       p.mb-3.text-gray-500.dark:text-gray-600
-        =< blog.content
+        =< blog.content&.truncate(100)
       hr
       a.inline-flex.items-center.font-medium.mt-1
         | By

@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   validates :title, uniqueness: true
   validates :title, :content, presence: true
