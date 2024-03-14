@@ -15,7 +15,7 @@
         = @blog.publication_date&.strftime("%d-%B-%Y")
     - if @blog.user_id == current_user.id
       .px-6.pb-6.flex.justify-between
-        = link_to "Edit", edit_blog_path(@blog), class: "bg-cyan-700 font-semibold bg-btn py-2 px-4 rounded-3xl"
+        = link_to "Edit", edit_blog_path(@blog), class: "bg-sky-600 hover:bg-sky-700 font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline py-2 px-4 rounded-3xl"
         = link_to "Destroy", blog_path(@blog), data: { turbo_method: :delete }, class: "bg-red-700 font-semibold bg-btn py-2 px-4 rounded-3xl"
 
   - if user_signed_in?
