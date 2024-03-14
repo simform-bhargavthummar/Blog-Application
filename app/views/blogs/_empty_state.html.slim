@@ -1,0 +1,7 @@
+- unless blogs.present?
+  .bg-white.rounded-lg.shadow-lg.flex.flex-col.h-max.w-full
+    .px-4.py-4.md:px-6.md:py-6
+      h2.text-center.text-2xl.font-semibold.mb-4
+        | You don't have any Blogs yet!
+      p.text-center.mt-6
+        = link_to "Add Blog", new_blog_path, class: "text-white hover:bg-cyan-700 font-semibold bg-btnEdit py-2 px-4 rounded-3xl"

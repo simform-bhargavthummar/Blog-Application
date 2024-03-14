@@ -1,0 +1,9 @@
+.flex.justify-between.items-center.mb-6.flex-wrap.gap-y-4
+  .font-semibold.text-2xl.md:text-3xl.font-semibold
+    | All Blogs
+
+= render partial: "blogs/empty_state", locals: { blogs: @blogs }
+= render @blogs
+
+.flex.items-center.justify-center.digg_pagination.my-6
+  = will_paginate @blogs

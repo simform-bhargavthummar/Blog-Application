@@ -1,0 +1,10 @@
+= turbo_frame_tag "new_comment_form" do
+  = form_with(model: [blog, comment]) do |form|
+    = render partial: 'shared/errors', locals: { object: comment }
+
+    .mb-4
+      = form.label :content, class: "py-3 text-sm font-bold"
+      = form.text_area :content, class: "shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+
+    .mb-6
+      = form.submit 'Post', class: "bg-cyan-300 font-semibold bg-btn p-2 rounded-3xl"

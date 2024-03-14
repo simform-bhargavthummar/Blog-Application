@@ -1,0 +1,6 @@
+.flex.justify-between.items-center.mb-6.flex-wrap.gap-y-4
+  .font-semibold.text-2xl.md:text-3xl.font-semibold
+    | New Blog
+.max-w-7xl.mx-auto.bg-white.overflow-hidden.p-4.rounded
+    = render partial: 'form', locals: { blog: @blog }
+
