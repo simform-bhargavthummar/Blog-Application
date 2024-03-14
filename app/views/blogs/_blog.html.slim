@@ -4,7 +4,7 @@
       = link_to blog_path(blog), data: { "clipboard-target" => "source"} do
         div#about-tab.inline-block.p-4.rounded-ss-lg
           | Published On
-          =< blog.publication_date&.strftime("%B %d, %Y")
+          =< blog.publication_date&.strftime("%d-%B-%Y")
 
     div.flex.justify-between.flex-wrap
       div.me-2
